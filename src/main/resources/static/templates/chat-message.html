@@ -1,0 +1,14 @@
+<li class="clearfix" ng-if="messageIsMine({{message.speakerId}})">
+    <div class="message-data align-right">
+        <span class="message-data-time">{{message.time}}</span> &nbsp; &nbsp; <span class="message-data-name">{{message.speaker}}</span>
+        <i class="fa fa-circle me"></i>
+    </div>
+    <div class="from-me-message">{{message.message}}</div>
+</li>
+<li class="clearfix" ng-if="!messageIsMine({{message.speakerId}})">
+    <div class="message-data">
+        <span class="message-data-name"><i
+                class="fa fa-circle online"></i>{{message.speaker}}</span> <span class="message-data-time">{{message.time}}</span>
+    </div>
+    <div class="from-them-message">{{message.message}}</div>
+</li>

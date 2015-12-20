@@ -1,0 +1,39 @@
+<ion-view title="Login chat" ng-controller="LoginCtrl">
+    <ion-content padding="true" class="has-header">
+        
+            <ion-list>
+                
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="you@domain.com" ng-model="user.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="At least 6 characters" ng-model="user.password">
+                </label>
+            </ion-list>
+            <button class="button button-stable button-block" ng-click="login()">Login</button>
+       
+       <div class="login-divider"/> </div>
+<span>Or you haven't signed up yet</span>
+
+
+        <form>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" placeholder="enter user name..." ng-model="user.signup.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="you@domain.com" ng-model="user.signup.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="At least 6 characters" ng-model="user.signup.password">
+                </label>
+            </ion-list>
+            <button class="button button-stable button-block" ng-click="signup()">Sign up</button>
+        </form>
+    </ion-content>
+</ion-view>

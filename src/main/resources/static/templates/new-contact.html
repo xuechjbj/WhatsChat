@@ -1,0 +1,27 @@
+<ion-view title="New Contact">
+    <ion-content padding="true" class="has-header">
+        <label class="item item-input">
+            <span class="input-label">Name</span>
+            <input type="text" placeholder="enter username you want to talk" ng-model="user.invitedName">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Greeting</span>
+            <textarea type="text" placeholder="Say hello..." ng-model="user.greeting">
+            </textarea>
+        </label>
+
+
+        <div class="row">
+            <div class="col col-50">
+                <button class="button button-positive" ng-click="requestCancel()">
+                    Cancel
+                </button>
+            </div>
+            <div class="col col-50">
+                <button class="button button-positive" ng-click="requestChat()">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

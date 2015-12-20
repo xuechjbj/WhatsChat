@@ -1,0 +1,35 @@
+<!--
+This template loads for the 'tab.friend-detail' state (app.js)
+'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+The FriendsCtrl pulls data from the Friends service (service.js)
+The Friends service returns an array of friend data
+-->
+<ion-view cache-view="false" view-title="Chatting">
+    <div class="loader-center" ng-if="!doneLoading">
+        <div class="loader">
+            <i class="icon ion-loading-c"></i>
+        </div>
+    </div>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-positive" ng-click="pickupFile()">
+            <i class="fa fa-plus fa-1x"></i>
+        </button>
+        <button class="button button-positive" ng-click="logout()">
+            <i class="fa fa-arrow-right fa-1x"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="padding" delegate-handle="chatDetailScroll">
+        <div class="chat">
+            <div class="chat-history" id="chat-history-{{chatId}}">
+                <ul new-coming-msg />
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+        <textarea ng-model="data.messageToSend" value="" placeholder="Send {{toUser.username}} a message..." required minlength="1" maxlength="1500"></textarea>
+        <div class="footer-btn-wrap">
+            <button class="button button-icon icon ion-ios-paperplane footer-btn" ng-click="sendMessage('{{chatId}}')" ng-disabled="!data.messageToSend || data.messageToSend === ''">
+            </button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

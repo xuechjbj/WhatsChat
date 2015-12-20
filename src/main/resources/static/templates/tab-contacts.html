@@ -1,0 +1,29 @@
+<ion-view cache-view="false" view-title="Chats">
+   <ion-nav-buttons side="primary">
+    <button ng-if="hasNewInvites()" class="button button-positive" ng-click="checkInvites()">
+            <i class="fa fa-commenting fa-1x"></i>new invites!
+        </button>
+    </ion-nav-buttons>
+
+   <ion-nav-buttons side="secondary">
+      <button class="button button-positive" ng-click="addNewSession()">
+        <i class="fa fa-plus fa-1x"></i>
+      </button>
+      <div class="button-divider"></div>
+      <button class="button button-positive" ng-click="logout()">
+        <i class="fa fa-sign-out fa-1x"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chatSessions" type="item-text-wrap" ng-click="launchchat('{{chat.chatId}}')">
+        <img ng-src="{{serverUrl}}{{chat.participantIds[0].iconUrl}}">
+        <div class = "row">&nbsp; &nbsp;
+        <h2>{{chat.participantIds[0].name}}</h2>
+        <i ng-class="getStatusClass('{{chat.participantIds[0].status}}')"></i>
+        </div>
+        <p ng-class="getBoldClass('{{chat.latestMsg.readDone}}')">{{chat.latestMsg.message}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

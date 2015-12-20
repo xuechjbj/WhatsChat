@@ -1,0 +1,47 @@
+<ion-view title="New Invites">
+    <ion-content padding="true" class="has-header">
+        <div class="list card">
+            <a class="item item-icon-left" ng-repeat="invt in chatInvites">
+                <img ng-src="{{serverUrl}}{{invt.portraitUrl}}">
+                <div class="row">
+                    <h3>Initiator: {{invt.initiator}}</h3></div>
+                <div class="row">
+                    <h3>InviteeId: {{invt.invitee}}</h3></div>
+                <div class="row">
+                    <h3>Greeting: {{invt.greeting}}</h3></div>
+                <i ng-class="getStatusClass('{{invt.initiatorStatus}}')"></i>
+                <div class="row" ng-switch="how2show(invt)">
+                    <div ng-switch-when="1">
+                        <div class="col">
+                            <button class="button button-positive" ng-click="refuseChat({{invt.inviteId}})">
+                                Refuse
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="button button-positive" ng-click="acceptChat({{invt.inviteId}})">
+                                Accept
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" ng-switch-when="2">
+                        <div class="col">
+                            <button class="button button-positive" ng-click="cancelChatRequest({{invt.inviteId}})">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" ng-switch-when="3">
+                        <div class="row">
+                            <h2>{{invt.invitee}} refused the invitation.</h2>
+                        </div>
+                        <div class="row">
+                            <button class="button button-positive" ng-click="sendAckMsg({{invt.inviteId}})">
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
